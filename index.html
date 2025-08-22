@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Project Tracking System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+        <header>
+            <h1>Fivoo Project Tracking System</h1>
+        </header>
+
+        <!-- Login/Panel Switch -->
+        <div id="login-panel" class="panel active login-panel">
+            <h2 class="section-title">Welcome</h2>
+            <p>Select your user type to continue.</p>
+            <div class="button-group">
+                <button id="company-login-btn" class="auth-button">Company Login</button>
+                <button id="client-view-btn" class="auth-button secondary">Client View</button>
+            </div>
+            
+            <div id="company-login-form" class="login-form-container" style="display: none; margin-top: 2rem;">
+                <h3 class="section-title">Company Access</h3>
+                <form id="company-auth-form" class="form-row">
+                    <div class="form-group">
+                        <label for="company-name">Company Name</label>
+                        <input type="text" id="company-name" placeholder="Enter company name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company-password">Password</label>
+                        <input type="password" id="company-password" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="secret-code">Secret Code</label>
+                        <input type="password" id="secret-code" placeholder="Enter secret code" required>
+                    </div>
+                    <button type="submit" class="auth-button">Sign In</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Company Panel -->
+        <div id="company-panel" class="panel">
+            <button id="logout-btn" class="auth-button secondary">Logout</button>
+            <h2 class="section-title">Company Panel</h2>
+            
+            <section class="update-credentials" style="margin-bottom: 2rem;">
+                <h3 class="section-title">Update Company Credentials</h3>
+                <form id="update-credentials-form" class="form-row">
+                    <div class="form-group">
+                        <label for="new-company-name">New Company Name</label>
+                        <input type="text" id="new-company-name" placeholder="e.g., Fivoo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-company-password">New Password</label>
+                        <input type="password" id="new-company-password" placeholder="Enter new password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="new-secret-code">New Secret Code</label>
+                        <input type="password" id="new-secret-code" placeholder="Enter new secret code" required>
+                    </div>
+                    <button type="submit" class="credential-update-button">Update Credentials</button>
+                </form>
+            </section>
+
+            <section class="add-project">
+                <h3 class="section-title">Add New Project</h3>
+                <form id="add-project-form" class="form-container">
+                    <div class="form-group">
+                        <label for="add-project-name">Project Name</label>
+                        <input type="text" id="add-project-name" placeholder="e.g., Website Redesign" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-client-name">Client Name</label>
+                        <input type="text" id="add-client-name" placeholder="e.g., Acme Corp" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="add-tracking-number">Tracking Number (Optional)</label>
+                        <input type="text" id="add-tracking-number" placeholder="e.g., PROJ-12345">
+                    </div>
+                    <div class="form-group">
+                        <label for="add-project-status">Status</label>
+                        <select id="add-project-status" required>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-button">Add Project</button>
+                </form>
+            </section>
+            
+            <section class="update-project" style="margin-top: 2rem;">
+                <h3 class="section-title">Update Project Progress</h3>
+                <form id="update-project-form">
+                    <div class="form-group">
+                        <label for="update-tracking-number">Tracking Number</label>
+                        <input type="text" id="update-tracking-number" placeholder="Enter project tracking ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="update-completion">Completion % (0-100)</label>
+                        <input type="number" id="update-completion" min="0" max="100" value="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Daily Progress (Hrs, Max 8)</label>
+                        <div class="form-container">
+                            <div class="form-group">
+                                <label for="mon">Mon</label>
+                                <input type="number" id="mon" class="day-progress-input" value="0" min="0" max="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="tue">Tue</label>
+                                <input type="number" id="tue" class="day-progress-input" value="0" min="0" max="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="wed">Wed</label>
+                                <input type="number" id="wed" class="day-progress-input" value="0" min="0" max="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="thu">Thu</label>
+                                <input type="number" id="thu" class="day-progress-input" value="0" min="0" max="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="fri">Fri</label>
+                                <input type="number" id="fri" class="day-progress-input" value="0" min="0" max="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="sat">Sat</label>
+                                <input type="number" id="sat" class="day-progress-input" value="0" min="0" max="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="sun">Sun</label>
+                                <input type="number" id="sun" class="day-progress-input" value="0" min="0" max="8">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="update-button">Update Record</button>
+                </form>
+            </section>
+            
+            <section class="project-list">
+                <h3 class="section-title">All Projects</h3>
+                <div id="project-list-container">
+                    <table class="project-table">
+                        <thead>
+                            <tr>
+                                <th>Tracking #</th>
+                                <th>Project Name</th>
+                                <th>Client Name</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="company-project-table-body">
+                            <!-- Project rows will be inserted here by JavaScript -->
+                        </tbody>
+                    </table>
+                    <div id="no-projects-message-company" class="no-projects-message" style="display: none;">
+                        No projects found.
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Client Panel -->
+        <div id="client-panel" class="panel">
+            <button id="client-back-btn" class="auth-button secondary">Back</button>
+            <h2 class="section-title">Client Panel</h2>
+
+            <section class="track-project">
+                <h3 class="section-title">Track Your Project</h3>
+                <div class="search-container">
+                    <input type="text" id="client-search-input" placeholder="Enter your tracking ID">
+                    <button id="client-search-button" class="search-button">Search</button>
+                </div>
+                <div id="client-project-details" style="display: none;">
+                    <div class="client-info">
+                        <p>Client Name: <span id="client-name-display"></span></p>
+                        <p>Project Name: <span id="project-name-display"></span></p>
+                        <p>Tracking ID: <span id="tracking-id-display"></span></p>
+                    </div>
+                    <div class="charts-container">
+                        <div class="chart">
+                            <h4>Project Completion</h4>
+                            <div id="completion-chart-container" class="circle-chart-container">
+                                <span id="completion-text" class="circle-chart-text">0%</span>
+                            </div>
+                        </div>
+                        <div class="chart">
+                            <h4>Weekly Progress</h4>
+                            <div id="weekly-progress-chart" class="bar-chart-container">
+                                <!-- Bars will be inserted here by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="no-client-project-message" class="no-projects-message" style="display: none;">
+                    No project found with that ID. Please check the tracking number.
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+<script src="app.js"></script>
+</body>
+</html>
